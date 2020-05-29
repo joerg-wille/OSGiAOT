@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<url>http://www.apache.org/</url>
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>net.jbw.playground</groupId>
+		<artifactId>greeting-parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+		<relativePath>../greeting.parent/pom.xml</relativePath>
+	</parent>
+
+	<artifactId>greeting-client</artifactId>
+	<name>Greeting Client</name>
+	<description>
+	    Demo for a OSGi Project - Client.
+    </description>
+	<packaging>jar</packaging>
+
+	<properties>
+		<!-- Project Dependecies Version Overwrite -->
+		<!-- greeting.api.version>${project.version}</greeting.api.version -->
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>greeting-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.service.component.annotations</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.gogo.command</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.ops4j.pax.logging</groupId>
+			<artifactId>pax-logging-api</artifactId>
+		</dependency>
+	</dependencies>
+
+</project>
+

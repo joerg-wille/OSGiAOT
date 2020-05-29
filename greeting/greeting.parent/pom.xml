@@ -1,0 +1,339 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<url>http://www.apache.org/</url>
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>net.jbw.playground</groupId>
+	<artifactId>greeting-parent</artifactId>
+	<name>Greeting Parent</name>
+	<description>
+	    Demo for a OSGi Project with multiple bundles in multiple git repositoties build with maven and deployed to nexus.
+        </description>
+	<packaging>pom</packaging>
+
+	<!-- Set Version for the greeting project -->
+	<version>1.0.0-SNAPSHOT</version>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<!-- Project Dependecies Versions -->
+		<greeting.api.version>${project.version}</greeting.api.version>
+		<greeting.impl.version>${project.version}</greeting.impl.version>
+		<greeting.client.version>${project.version}</greeting.client.version>
+
+		<!-- Maven Plugins Versions -->
+		<maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+		<maven.source.plugin.version>3.2.1</maven.source.plugin.version>
+		<maven.jar.plugin.version>3.2.0</maven.jar.plugin.version>
+		<maven.help.plugin.version>3.2.0</maven.help.plugin.version>
+		<maven.deploy.plugin.version>2.8.2</maven.deploy.plugin.version>
+		<maven.dependency.plugin.version>3.1.2</maven.dependency.plugin.version>
+		<biz.aQute.bnd.version>5.0.1</biz.aQute.bnd.version>
+		<karaf.maven.plugin.version>4.2.8</karaf.maven.plugin.version>
+		<maven.scm.plugin.version>1.11.2</maven.scm.plugin.version>
+		<maven.release.plugin.version>2.5.3</maven.release.plugin.version>
+
+		<!-- Minimum Java Version -->
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+
+		<!-- Dependencies Versions -->
+		<junit.version>4.12</junit.version>
+		<osgi.version>6.0.0</osgi.version>
+		<org.osgi.service.version>1.3.0</org.osgi.service.version>
+		<eclipse.osgi.version>3.12.50</eclipse.osgi.version>
+		<felix.framework.version>5.6.10</felix.framework.version>
+		<felix.scr.version>2.0.12</felix.scr.version>
+		<felix.gogo.command.version>1.0.2</felix.gogo.command.version>
+		<felix.gogo.shell.version>1.0.0</felix.gogo.shell.version>
+		<felix.gogo.log.version>1.0.1</felix.gogo.log.version>
+		<pax.logging.version>1.10.1</pax.logging.version>
+	</properties>
+
+	<!-- Only configuration for dependencies. Configuration is used by all children 
+		which use these dependencies -->
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>greeting-api</artifactId>
+				<version>${greeting.api.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>greeting-impl</artifactId>
+				<version>${greeting.impl.version}</version>
+				<scope>runtime</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>greeting-client</artifactId>
+				<version>${greeting.client.version}</version>
+				<scope>runtime</scope>
+			</dependency>
+
+			<!-- JUnit is added as default unit testing framework -->
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+				<scope>test</scope>
+			</dependency>
+
+			<!-- OSGi Core, Interfaces and Classes for use in compiling bundles. -->
+			<dependency>
+				<groupId>org.osgi</groupId>
+				<artifactId>osgi.core</artifactId>
+				<version>${osgi.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<!-- OSGi Annotation, Annotations for use in compiling bundles. -->
+			<dependency>
+				<groupId>org.osgi</groupId>
+				<artifactId>osgi.annotation</artifactId>
+				<version>${osgi.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.osgi</groupId>
+				<artifactId>org.osgi.service.component.annotations</artifactId>
+				<version>${org.osgi.service.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.ops4j.pax.logging</groupId>
+				<artifactId>pax-logging-api</artifactId>
+				<version>${pax.logging.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.ops4j.pax.logging</groupId>
+				<artifactId>pax-logging-service</artifactId>
+				<version>${pax.logging.version}</version>
+				<scope>runtime</scope>
+				<!-- Note that this bundle declares a dependency on log4j -->
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>org.apache.felix.framework</artifactId>
+				<version>${felix.framework.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.eclipse.platform</groupId>
+				<artifactId>org.eclipse.osgi</artifactId>
+				<version>${eclipse.osgi.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>org.apache.felix.scr</artifactId>
+				<version>${felix.scr.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>org.apache.felix.gogo.command</artifactId>
+				<version>${felix.gogo.command.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>org.apache.felix.gogo.shell</artifactId>
+				<version>${felix.gogo.shell.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>org.apache.felix.log</artifactId>
+				<version>${felix.gogo.log.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<defaultGoal>clean install</defaultGoal>
+
+		<pluginManagement>
+			<plugins>
+
+				<!-- The Compiler Plugin is used to compile the sources of your project -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${maven.compiler.plugin.version}</version>
+					<configuration>
+						<source>${maven.compiler.source}</source>
+						<target>${maven.compiler.target}</target>
+					</configuration>
+				</plugin>
+
+				<!-- The Maven Source Plugin creates a JAR archive of the source files 
+					of the current project -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-source-plugin</artifactId>
+					<version>${maven.source.plugin.version}</version>
+					<executions>
+						<execution>
+							<id>attach-sources</id>
+							<goals>
+								<goal>jar</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<attach>true</attach>
+					</configuration>
+				</plugin>
+
+				<!-- Builds a Java Archive (JAR) file from the compiled project classes 
+					and resources -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>${maven.jar.plugin.version}</version>
+					<configuration>
+						<archive>
+							<manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+						</archive>
+					</configuration>
+				</plugin>
+
+				<!-- The Maven Help plugin provides goals aimed at helping to make sense 
+					out of the build environment -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-help-plugin</artifactId>
+					<version>${maven.help.plugin.version}</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-dependency-plugin</artifactId>
+					<version>${maven.dependency.plugin.version}</version>
+					<executions>
+						<execution>
+							<id>tree</id>
+							<phase>validate</phase>
+							<goals>
+								<goal>list-repositories</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+
+				<!-- Uploads the project artifacts to the internal remote repository -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<version>${maven.deploy.plugin.version}</version>
+				</plugin>
+				<!-- This maven plugin is used to build OSGi bundles using the bnd tool 
+					for generating MANIFEST.MF and other OSGi-specific artifacts -->
+
+				<plugin>
+					<groupId>biz.aQute.bnd</groupId>
+					<artifactId>bnd-maven-plugin</artifactId>
+					<version>${biz.aQute.bnd.version}</version>
+					<executions>
+						<execution>
+							<goals>
+								<goal>bnd-process</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+
+				<plugin>
+					<groupId>biz.aQute.bnd</groupId>
+					<artifactId>bnd-indexer-maven-plugin</artifactId>
+					<version>${biz.aQute.bnd.version}</version>
+
+					<configuration>
+						<includeJar>true</includeJar>
+						<localURLs>REQUIRED</localURLs>
+					</configuration>
+					<executions>
+						<execution>
+							<goals>
+								<goal>index</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+
+				<plugin>
+					<groupId>biz.aQute.bnd</groupId>
+					<artifactId>bnd-export-maven-plugin</artifactId>
+					<version>${biz.aQute.bnd.version}</version>
+					<configuration>
+						<targetDir>target</targetDir>
+						<bndruns>
+							<bndrun>run.bndrun</bndrun>
+						</bndruns>
+					</configuration>
+					<executions>
+						<execution>
+							<goals>
+								<goal>export</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+
+				<plugin>
+					<groupId>biz.aQute.bnd</groupId>
+					<artifactId>bnd-resolver-maven-plugin</artifactId>
+					<version>${biz.aQute.bnd.version}</version>
+					<configuration>
+						<bndruns>
+							<bndrun>run.bndrun</bndrun>
+						</bndruns>
+					</configuration>
+				</plugin>
+			</plugins>
+
+		</pluginManagement>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-help-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>biz.aQute.bnd</groupId>
+				<artifactId>bnd-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
+

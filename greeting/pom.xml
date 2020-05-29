@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<url>http://www.apache.org/</url>
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>net.jbw.playground</groupId>
+		<artifactId>greeting-parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+		<relativePath>./greeting.parent/pom.xml</relativePath>
+	</parent>
+
+	<artifactId>greeting-aggregator</artifactId>
+	<name>Greeting Aggregator</name>
+	<description>
+	    Demo for a OSGi Project - Aggregator
+    </description>
+
+	<!-- Set Version for the greeting project -->
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>./greeting.parent</module>
+		<module>./greeting.api</module>
+		<module>./greeting.impl</module>
+		<module>./greeting.client</module>
+		<module>./greeting.launch</module>
+	</modules>
+
+</project>
+

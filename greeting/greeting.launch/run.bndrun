@@ -1,0 +1,42 @@
+-standalone: target/index.xml
+-resourceonly: true
+-resolve.effective: resolve, active
+	
+// -runfw: org.apache.felix.framework;version='[5,6)'
+-runfw: org.eclipse.osgi;version='[3.12,3.13)'
+
+-runee: JavaSE-1.8
+
+-runblacklist: \
+	osgi.identity;filter:='(osgi.identity=org.osgi.compendium)',\
+	osgi.identity;filter:='(osgi.identity=slf4j.api)'
+
+-runproperties.eqnx: 				\
+	osgi.console=, \
+	osgi.console.enable.builtin=false
+
+-runrequires.eqnx: \
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.log)'
+
+-runsystempackages.eqnx:		javax.script
+-runsystemcapabilities.dflt: 	${native_capability}
+
+-runbundles: \
+	org.apache.felix.log;version='[1.0.1,1.0.2)',\
+	org.apache.felix.gogo.runtime;version='[1.0.0,1.0.1)',\
+	org.apache.felix.gogo.shell;version='[1.0.0,1.0.1)',\
+	org.apache.felix.scr;version='[2.0.12,2.0.13)',\
+	org.apache.felix.gogo.command;version='[1.0.2,1.0.3)',\
+	greeting-api;version='[1.0.0,1.0.1)',\
+	greeting-client;version='[1.0.0,1.0.1)',\
+	greeting-impl;version='[1.0.0,1.0.1)',\
+	org.ops4j.pax.logging.pax-logging-api;version='[1.10.1,1.10.2)',\
+	org.ops4j.pax.logging.pax-logging-service;version='[1.10.1,1.10.2)',\
+	osgi.cmpn;version='[4.3.1,4.3.2)'
+-runrequires: \
+	osgi.identity;filter:='(osgi.identity=greeting-api)',\
+	osgi.identity;filter:='(osgi.identity=greeting-impl)',\
+	osgi.identity;filter:='(osgi.identity=greeting-client)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.shell)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.command)',\
+	osgi.identity;filter:='(osgi.identity=org.ops4j.pax.logging.pax-logging-service)'

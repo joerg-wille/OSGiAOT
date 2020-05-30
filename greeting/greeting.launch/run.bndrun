@@ -8,6 +8,7 @@
 -runee: JavaSE-1.8
 
 -runblacklist: \
+	osgi.identity;filter:='(osgi.identity=org.osgi.compn)',\
 	osgi.identity;filter:='(osgi.identity=org.osgi.compendium)',\
 	osgi.identity;filter:='(osgi.identity=slf4j.api)'
 
@@ -29,14 +30,10 @@
 	org.apache.felix.gogo.command;version='[1.0.2,1.0.3)',\
 	greeting-api;version='[1.0.0,1.0.1)',\
 	greeting-client;version='[1.0.0,1.0.1)',\
-	greeting-impl;version='[1.0.0,1.0.1)',\
-	org.ops4j.pax.logging.pax-logging-api;version='[1.10.1,1.10.2)',\
-	org.ops4j.pax.logging.pax-logging-service;version='[1.10.1,1.10.2)',\
-	osgi.cmpn;version='[4.3.1,4.3.2)'
+	greeting-impl;version='[1.0.0,1.0.1)'
 -runrequires: \
 	osgi.identity;filter:='(osgi.identity=greeting-api)',\
 	osgi.identity;filter:='(osgi.identity=greeting-impl)',\
 	osgi.identity;filter:='(osgi.identity=greeting-client)',\
 	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.shell)',\
-	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.command)',\
-	osgi.identity;filter:='(osgi.identity=org.ops4j.pax.logging.pax-logging-service)'
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.command)'

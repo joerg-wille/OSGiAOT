@@ -25,6 +25,7 @@
 		<module>./greeting.api</module>
 		<module>./greeting.impl</module>
 		<module>./greeting.client</module>
+		<module>./greeting.bom</module>
 		<module>./greeting.launch</module>
 	</modules>
 

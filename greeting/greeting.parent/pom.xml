@@ -20,9 +20,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<!-- Project Dependecies Versions -->
-		<greeting.api.version>${project.version}</greeting.api.version>
-		<greeting.impl.version>${project.version}</greeting.impl.version>
-		<greeting.client.version>${project.version}</greeting.client.version>
+		<greeting.version>${project.version}</greeting.version>
 
 		<!-- Maven Plugins Versions -->
 		<maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
@@ -41,6 +39,7 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 
 		<!-- Dependencies Versions -->
+		<atomos.version>0.0.1-SNAPSHOT</atomos.version>
 		<junit.version>4.12</junit.version>
 		<osgi.version>6.0.0</osgi.version>
 		<org.osgi.service.version>1.3.0</org.osgi.service.version>
@@ -60,21 +59,28 @@
 			<dependency>
 				<groupId>${project.groupId}</groupId>
 				<artifactId>greeting-api</artifactId>
-				<version>${greeting.api.version}</version>
+				<version>${greeting.version}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>${project.groupId}</groupId>
 				<artifactId>greeting-impl</artifactId>
-				<version>${greeting.impl.version}</version>
+				<version>${greeting.version}</version>
 				<scope>runtime</scope>
 			</dependency>
 
 			<dependency>
 				<groupId>${project.groupId}</groupId>
 				<artifactId>greeting-client</artifactId>
-				<version>${greeting.client.version}</version>
+				<version>${greeting.version}</version>
 				<scope>runtime</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>greeting-bom</artifactId>
+				<version>${greeting.version}</version>
+				<type>pom</type>
 			</dependency>
 
 			<!-- JUnit is added as default unit testing framework -->
@@ -120,6 +126,12 @@
 				<version>${pax.logging.version}</version>
 				<scope>runtime</scope>
 				<!-- Note that this bundle declares a dependency on log4j -->
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>org.apache.felix.atomos.runtime</artifactId>
+				<version>${atomos.version}</version>
 			</dependency>
 
 			<dependency>

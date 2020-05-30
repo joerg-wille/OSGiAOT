@@ -1,0 +1,350 @@
+[
+{
+  "name":"aQute.launcher.Launcher"
+},
+{
+  "name":"aQute.launcher.pre.EmbeddedLauncher$Loader",
+  "methods":[{"name":"addURL","parameterTypes":["java.net.URL"] }]
+},
+{
+  "name":"java.lang.ClassLoader",
+  "methods":[{"name":"getPlatformClassLoader","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.Module",
+  "methods":[{"name":"getDescriptor","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.ModuleLayer",
+  "methods":[
+    {"name":"boot","parameterTypes":[] }, 
+    {"name":"modules","parameterTypes":[] }
+  ]
+},
+{
+  "name":"java.lang.Object"
+},
+{
+  "name":"java.lang.String[]"
+},
+{
+  "name":"java.lang.System",
+  "allPublicMethods":true
+},
+{
+  "name":"java.lang.module.ModuleDescriptor",
+  "methods":[
+    {"name":"exports","parameterTypes":[] }, 
+    {"name":"isAutomatic","parameterTypes":[] }, 
+    {"name":"packages","parameterTypes":[] }
+  ]
+},
+{
+  "name":"java.lang.module.ModuleDescriptor$Exports",
+  "methods":[
+    {"name":"isQualified","parameterTypes":[] }, 
+    {"name":"source","parameterTypes":[] }
+  ]
+},
+{
+  "name":"java.net.SetAccessible/0x0000000840118040",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"java.net.URI",
+  "allPublicMethods":true,
+  "methods":[{"name":"<init>","parameterTypes":["java.lang.String"] }]
+},
+{
+  "name":"java.net.URL",
+  "allDeclaredFields":true
+},
+{
+  "name":"java.net.URLConnection",
+  "allDeclaredFields":true
+},
+{
+  "name":"javax.xml.parsers.SAXParser"
+},
+{
+  "name":"javax.xml.parsers.SAXParserFactory"
+},
+{
+  "name":"net.jbw.playground.greeting.api.GreetingService"
+},
+{
+  "name":"net.jbw.playground.greeting.client.command.GreetingCommand",
+  "allDeclaredMethods":true
+},
+{
+  "name":"net.jbw.playground.greeting.client.command.GreetingCommandEnglish",
+  "allDeclaredMethods":true,
+  "allPublicMethods":true,
+  "allPublicConstructors":true
+},
+{
+  "name":"net.jbw.playground.greeting.client.command.GreetingCommandGerman",
+  "allDeclaredMethods":true,
+  "allPublicMethods":true,
+  "allPublicConstructors":true
+},
+{
+  "name":"net.jbw.playground.greeting.client.command.GreetingCommandsHelp",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"net.jbw.playground.greeting.impl.GreetingImpl",
+  "allDeclaredMethods":true
+},
+{
+  "name":"net.jbw.playground.greeting.impl.GreetingImplEnglish",
+  "allDeclaredMethods":true,
+  "allPublicConstructors":true
+},
+{
+  "name":"net.jbw.playground.greeting.impl.GreetingImplGerman",
+  "allDeclaredMethods":true,
+  "allPublicConstructors":true
+},
+{
+  "name":"org.apache.felix.gogo.command.Activator",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"org.apache.felix.gogo.command.Basic",
+  "allPublicMethods":true
+},
+{
+  "name":"org.apache.felix.gogo.command.Files",
+  "allPublicMethods":true
+},
+{
+  "name":"org.apache.felix.gogo.command.Inspect",
+  "allPublicMethods":true
+},
+{
+  "name":"org.apache.felix.gogo.runtime.CommandProcessorImpl",
+  "allPublicMethods":true
+},
+{
+  "name":"org.apache.felix.gogo.runtime.activator.Activator",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"org.apache.felix.gogo.shell.Activator",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"org.apache.felix.gogo.shell.Builtin",
+  "allPublicMethods":true
+},
+{
+  "name":"org.apache.felix.gogo.shell.Posix",
+  "allPublicMethods":true
+},
+{
+  "name":"org.apache.felix.gogo.shell.Procedural",
+  "allPublicMethods":true
+},
+{
+  "name":"org.apache.felix.gogo.shell.Shell",
+  "allPublicMethods":true
+},
+{
+  "name":"org.apache.felix.gogo.shell.Telnet",
+  "allPublicMethods":true
+},
+{
+  "name":"org.apache.felix.scr.impl.Activator",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"org.apache.felix.scr.impl.ComponentCommands",
+  "allPublicMethods":true
+},
+{
+  "name":"org.apache.felix.service.command.CommandProcessor"
+},
+{
+  "name":"org.apache.felix.service.command.CommandSession",
+  "allDeclaredMethods":true
+},
+{
+  "name":"org.apache.felix.service.command.Converter"
+},
+{
+  "name":"org.apache.felix.service.command.Function[]"
+},
+{
+  "name":"org.apache.felix.service.threadio.ThreadIO"
+},
+{
+  "name":"org.eclipse.equinox.log.ExtendedLogService"
+},
+{
+  "name":"org.eclipse.osgi.framework.log.FrameworkLog"
+},
+{
+  "name":"org.eclipse.osgi.internal.cds.CDSHookConfigurator",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"org.eclipse.osgi.internal.framework.BundleContextImpl",
+  "allPublicMethods":true
+},
+{
+  "name":"org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle",
+  "allPublicMethods":true
+},
+{
+  "name":"org.eclipse.osgi.internal.framework.SystemBundleActivator",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"org.eclipse.osgi.internal.signedcontent.SignedBundleHook",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"org.eclipse.osgi.service.datalocation.Location"
+},
+{
+  "name":"org.eclipse.osgi.service.debug.DebugOptions"
+},
+{
+  "name":"org.eclipse.osgi.service.debug.DebugOptionsListener"
+},
+{
+  "name":"org.eclipse.osgi.service.environment.EnvironmentInfo"
+},
+{
+  "name":"org.eclipse.osgi.service.localization.BundleLocalization"
+},
+{
+  "name":"org.eclipse.osgi.service.security.TrustEngine"
+},
+{
+  "name":"org.eclipse.osgi.service.urlconversion.URLConverter"
+},
+{
+  "name":"org.eclipse.osgi.signedcontent.SignedContentFactory"
+},
+{
+  "name":"org.osgi.dto.DTO"
+},
+{
+  "name":"org.osgi.framework.Bundle"
+},
+{
+  "name":"org.osgi.framework.BundleActivator"
+},
+{
+  "name":"org.osgi.framework.BundleContext"
+},
+{
+  "name":"org.osgi.framework.BundleEvent"
+},
+{
+  "name":"org.osgi.framework.BundleException"
+},
+{
+  "name":"org.osgi.framework.Filter"
+},
+{
+  "name":"org.osgi.framework.InvalidSyntaxException"
+},
+{
+  "name":"org.osgi.framework.ServiceEvent"
+},
+{
+  "name":"org.osgi.framework.ServiceException"
+},
+{
+  "name":"org.osgi.framework.ServiceFactory"
+},
+{
+  "name":"org.osgi.framework.ServiceListener"
+},
+{
+  "name":"org.osgi.framework.ServiceReference"
+},
+{
+  "name":"org.osgi.framework.ServiceRegistration"
+},
+{
+  "name":"org.osgi.framework.SynchronousBundleListener"
+},
+{
+  "name":"org.osgi.framework.Version"
+},
+{
+  "name":"org.osgi.framework.launch.Framework"
+},
+{
+  "name":"org.osgi.framework.wiring.BundleCapability"
+},
+{
+  "name":"org.osgi.framework.wiring.BundleRevision"
+},
+{
+  "name":"org.osgi.framework.wiring.BundleWire"
+},
+{
+  "name":"org.osgi.framework.wiring.BundleWiring"
+},
+{
+  "name":"org.osgi.service.component.runtime.ServiceComponentRuntime"
+},
+{
+  "name":"org.osgi.service.condpermadmin.ConditionalPermissionAdmin"
+},
+{
+  "name":"org.osgi.service.log.LogService"
+},
+{
+  "name":"org.osgi.service.log.Logger"
+},
+{
+  "name":"org.osgi.service.log.LoggerFactory"
+},
+{
+  "name":"org.osgi.service.log.admin.LoggerAdmin"
+},
+{
+  "name":"org.osgi.service.packageadmin.PackageAdmin"
+},
+{
+  "name":"org.osgi.service.permissionadmin.PermissionAdmin"
+},
+{
+  "name":"org.osgi.service.resolver.Resolver"
+},
+{
+  "name":"org.osgi.service.startlevel.StartLevel"
+},
+{
+  "name":"org.osgi.util.tracker.BundleTracker"
+},
+{
+  "name":"org.osgi.util.tracker.BundleTrackerCustomizer"
+},
+{
+  "name":"org.osgi.util.tracker.ServiceTracker"
+},
+{
+  "name":"org.osgi.util.tracker.ServiceTrackerCustomizer"
+},
+{
+  "name":"org.xml.sax.Attributes"
+},
+{
+  "name":"org.xml.sax.SAXException"
+},
+{
+  "name":"org.xml.sax.helpers.DefaultHandler"
+},
+{
+  "name":"sun.misc.Unsafe",
+  "fields":[{"name":"theUnsafe"}],
+  "methods":[{"name":"defineAnonymousClass","parameterTypes":["java.lang.Class","byte[]","java.lang.Object[]"] }]
+}
+]

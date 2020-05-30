@@ -19,6 +19,11 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
+		<!-- Minimum Java Version -->
+		<java.version>11</java.version>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+
 		<!-- Project Dependecies Versions -->
 		<greeting.version>${project.version}</greeting.version>
 
@@ -33,23 +38,22 @@
 		<karaf.maven.plugin.version>4.2.8</karaf.maven.plugin.version>
 		<maven.scm.plugin.version>1.11.2</maven.scm.plugin.version>
 		<maven.release.plugin.version>2.5.3</maven.release.plugin.version>
-
-		<!-- Minimum Java Version -->
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
+		<lifecycle.mapping.version>1.0.0</lifecycle.mapping.version>
 
 		<!-- Dependencies Versions -->
 		<atomos.version>0.0.1-SNAPSHOT</atomos.version>
+		<felix.framework.connect.version>0.1.0-SNAPSHOT</felix.framework.connect.version>
 		<junit.version>4.12</junit.version>
-		<osgi.version>6.0.0</osgi.version>
-		<org.osgi.service.version>1.3.0</org.osgi.service.version>
-		<eclipse.osgi.version>3.12.50</eclipse.osgi.version>
+		<osgi.version>7.0.0</osgi.version>
+		<osgi.promise.version>7.0.1</osgi.promise.version>
+		<org.osgi.service.version>1.4.0</org.osgi.service.version>
+		<eclipse.osgi.version>3.15.200</eclipse.osgi.version>
+		<!-- <eclipse.osgi.version>3.16.0.tjwatson_osgiConnect13</eclipse.osgi.version> -->
 		<felix.framework.version>5.6.10</felix.framework.version>
-		<felix.scr.version>2.0.12</felix.scr.version>
-		<felix.gogo.command.version>1.0.2</felix.gogo.command.version>
-		<felix.gogo.shell.version>1.0.0</felix.gogo.shell.version>
-		<felix.gogo.log.version>1.0.1</felix.gogo.log.version>
-		<pax.logging.version>1.10.1</pax.logging.version>
+		<felix.scr.version>2.1.20</felix.scr.version>
+		<felix.gogo.bom.version>1.0.2</felix.gogo.bom.version>
+		<pax.logging.version>1.11.6</pax.logging.version>
+
 	</properties>
 
 	<!-- Only configuration for dependencies. Configuration is used by all children 
@@ -145,27 +149,44 @@
 				<artifactId>org.eclipse.osgi</artifactId>
 				<version>${eclipse.osgi.version}</version>
 			</dependency>
+
 			<dependency>
 				<groupId>org.apache.felix</groupId>
 				<artifactId>org.apache.felix.scr</artifactId>
 				<version>${felix.scr.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>*</groupId>
+						<artifactId>*</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
+
 			<dependency>
-				<groupId>org.apache.felix</groupId>
-				<artifactId>org.apache.felix.gogo.command</artifactId>
-				<version>${felix.gogo.command.version}</version>
+				<groupId>org.osgi</groupId>
+				<artifactId>osgi.promise</artifactId>
+				<version>${osgi.promise.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>*</groupId>
+						<artifactId>*</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 
 			<dependency>
 				<groupId>org.apache.felix</groupId>
-				<artifactId>org.apache.felix.gogo.shell</artifactId>
-				<version>${felix.gogo.shell.version}</version>
-			</dependency>
+				<artifactId>org.apache.felix.gogo.bom</artifactId>
+				<version>${felix.gogo.bom.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>*</groupId>
+						<artifactId>*</artifactId>
+					</exclusion>
+				</exclusions>
+				<type>pom</type>
+				<scope>import</scope>
 
-			<dependency>
-				<groupId>org.apache.felix</groupId>
-				<artifactId>org.apache.felix.log</artifactId>
-				<version>${felix.gogo.log.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

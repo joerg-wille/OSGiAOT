@@ -47,149 +47,23 @@
 		<osgi.version>7.0.0</osgi.version>
 		<osgi.promise.version>7.0.1</osgi.promise.version>
 		<org.osgi.service.version>1.4.0</org.osgi.service.version>
-		<eclipse.osgi.version>3.15.200</eclipse.osgi.version>
-		<!-- <eclipse.osgi.version>3.16.0.tjwatson_osgiConnect13</eclipse.osgi.version> -->
+		<eclipse.osgi.version>3.16.0.tjwatson_osgiConnect13</eclipse.osgi.version>
 		<felix.framework.version>5.6.10</felix.framework.version>
 		<felix.scr.version>2.1.20</felix.scr.version>
 		<felix.gogo.bom.version>1.0.2</felix.gogo.bom.version>
 		<pax.logging.version>1.11.6</pax.logging.version>
-
 	</properties>
 
-	<!-- Only configuration for dependencies. Configuration is used by all children 
-		which use these dependencies -->
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>${project.groupId}</groupId>
-				<artifactId>greeting-api</artifactId>
-				<version>${greeting.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>${project.groupId}</groupId>
-				<artifactId>greeting-impl</artifactId>
-				<version>${greeting.version}</version>
-				<scope>runtime</scope>
-			</dependency>
-
-			<dependency>
-				<groupId>${project.groupId}</groupId>
-				<artifactId>greeting-client</artifactId>
-				<version>${greeting.version}</version>
-				<scope>runtime</scope>
-			</dependency>
-
-			<dependency>
-				<groupId>${project.groupId}</groupId>
-				<artifactId>greeting-bom</artifactId>
-				<version>${greeting.version}</version>
-				<type>pom</type>
-			</dependency>
-
-			<!-- JUnit is added as default unit testing framework -->
-			<dependency>
-				<groupId>junit</groupId>
-				<artifactId>junit</artifactId>
-				<version>${junit.version}</version>
-				<scope>test</scope>
-			</dependency>
-
-			<!-- OSGi Core, Interfaces and Classes for use in compiling bundles. -->
-			<dependency>
-				<groupId>org.osgi</groupId>
-				<artifactId>osgi.core</artifactId>
-				<version>${osgi.version}</version>
-				<scope>provided</scope>
-			</dependency>
-
-			<!-- OSGi Annotation, Annotations for use in compiling bundles. -->
-			<dependency>
-				<groupId>org.osgi</groupId>
-				<artifactId>osgi.annotation</artifactId>
-				<version>${osgi.version}</version>
-				<scope>provided</scope>
-			</dependency>
-
-			<dependency>
-				<groupId>org.osgi</groupId>
-				<artifactId>org.osgi.service.component.annotations</artifactId>
-				<version>${org.osgi.service.version}</version>
-				<scope>provided</scope>
-			</dependency>
-
-			<dependency>
-				<groupId>org.ops4j.pax.logging</groupId>
-				<artifactId>pax-logging-api</artifactId>
-				<version>${pax.logging.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.ops4j.pax.logging</groupId>
-				<artifactId>pax-logging-service</artifactId>
-				<version>${pax.logging.version}</version>
-				<scope>runtime</scope>
-				<!-- Note that this bundle declares a dependency on log4j -->
-			</dependency>
-
-			<dependency>
-				<groupId>org.apache.felix</groupId>
-				<artifactId>org.apache.felix.atomos.runtime</artifactId>
-				<version>${atomos.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.apache.felix</groupId>
-				<artifactId>org.apache.felix.framework</artifactId>
-				<version>${felix.framework.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.eclipse.platform</groupId>
-				<artifactId>org.eclipse.osgi</artifactId>
-				<version>${eclipse.osgi.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.apache.felix</groupId>
-				<artifactId>org.apache.felix.scr</artifactId>
-				<version>${felix.scr.version}</version>
-				<exclusions>
-					<exclusion>
-						<groupId>*</groupId>
-						<artifactId>*</artifactId>
-					</exclusion>
-				</exclusions>
-			</dependency>
-
-			<dependency>
-				<groupId>org.osgi</groupId>
-				<artifactId>osgi.promise</artifactId>
-				<version>${osgi.promise.version}</version>
-				<exclusions>
-					<exclusion>
-						<groupId>*</groupId>
-						<artifactId>*</artifactId>
-					</exclusion>
-				</exclusions>
-			</dependency>
-
-			<dependency>
-				<groupId>org.apache.felix</groupId>
-				<artifactId>org.apache.felix.gogo.bom</artifactId>
-				<version>${felix.gogo.bom.version}</version>
-				<exclusions>
-					<exclusion>
-						<groupId>*</groupId>
-						<artifactId>*</artifactId>
-					</exclusion>
-				</exclusions>
-				<type>pom</type>
-				<scope>import</scope>
-
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
+	<repositories>
+		<repository>
+			<id>atomos-temp-m2repo</id>
+			<url>https://github.com/tjwatson/atomos-temp-m2repo/raw/master/repository</url>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
+		</repository>
+	</repositories>
 
 	<build>
 		<defaultGoal>clean install</defaultGoal>
@@ -367,6 +241,212 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<!-- Only configuration for dependencies. Configuration is used by all children 
+		which use these dependencies -->
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>greeting-api</artifactId>
+				<version>${greeting.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>greeting-impl</artifactId>
+				<version>${greeting.version}</version>
+				<scope>runtime</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>greeting-client</artifactId>
+				<version>${greeting.version}</version>
+				<scope>runtime</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>greeting-bom</artifactId>
+				<version>${greeting.version}</version>
+				<type>pom</type>
+			</dependency>
+
+			<!-- JUnit is added as default unit testing framework -->
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+				<scope>test</scope>
+			</dependency>
+
+			<!-- OSGi Core, Interfaces and Classes for use in compiling bundles. -->
+			<!-- <dependency> -->
+			<!-- <groupId>org.osgi</groupId> -->
+			<!-- <artifactId>osgi.core</artifactId> -->
+			<!-- <version>${osgi.version}</version> -->
+			<!-- <scope>provided</scope> -->
+			<!-- </dependency> -->
+
+			<!-- OSGi Annotation, Annotations for use in compiling bundles. -->
+			<dependency>
+				<groupId>org.osgi</groupId>
+				<artifactId>osgi.annotation</artifactId>
+				<version>${osgi.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.osgi</groupId>
+				<artifactId>osgi.promise</artifactId>
+				<version>${osgi.promise.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>*</groupId>
+						<artifactId>*</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
+			<!-- <dependency> -->
+			<!-- <groupId>org.osgi</groupId> -->
+			<!-- <artifactId>org.osgi.service.component</artifactId> -->
+			<!-- <version>${org.osgi.service.version}</version> -->
+			<!-- <exclusions> -->
+			<!-- <exclusion> -->
+			<!-- <groupId>*</groupId> -->
+			<!-- <artifactId>*</artifactId> -->
+			<!-- </exclusion> -->
+			<!-- </exclusions> -->
+			<!-- </dependency> -->
+
+			<dependency>
+				<groupId>org.osgi</groupId>
+				<artifactId>org.osgi.service.component.annotations</artifactId>
+				<version>${org.osgi.service.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>*</groupId>
+						<artifactId>*</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
+			<dependency>
+				<groupId>org.eclipse.platform</groupId>
+				<artifactId>org.eclipse.osgi</artifactId>
+				<version>${eclipse.osgi.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>*</groupId>
+						<artifactId>*</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>org.apache.felix.framework.connect</artifactId>
+				<version>0.1.0-SNAPSHOT</version>
+				<exclusions>
+					<exclusion>
+						<groupId>*</groupId>
+						<artifactId>*</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>org.apache.felix.scr</artifactId>
+				<version>${felix.scr.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>*</groupId>
+						<artifactId>*</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>org.apache.felix.gogo.bom</artifactId>
+				<version>${felix.gogo.bom.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>*</groupId>
+						<artifactId>*</artifactId>
+					</exclusion>
+				</exclusions>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>org.apache.felix.log</artifactId>
+				<version>1.2.2</version>
+				<exclusions>
+					<exclusion>
+						<groupId>*</groupId>
+						<artifactId>*</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
+			<dependency>
+				<groupId>org.osgi</groupId>
+				<artifactId>org.osgi.service.cm</artifactId>
+				<version>1.5.0</version>
+				<exclusions>
+					<exclusion>
+						<groupId>*</groupId>
+						<artifactId>*</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
+			<dependency>
+				<groupId>org.osgi</groupId>
+				<artifactId>org.osgi.service.event</artifactId>
+				<version>1.4.0</version>
+				<exclusions>
+					<exclusion>
+						<groupId>*</groupId>
+						<artifactId>*</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>org.apache.felix.atomos.runtime</artifactId>
+				<version>${atomos.version}</version>
+			</dependency>
+
+			<!-- <dependency> -->
+			<!-- <groupId>org.ops4j.pax.logging</groupId> -->
+			<!-- <artifactId>pax-logging-api</artifactId> -->
+			<!-- <version>${pax.logging.version}</version> -->
+			<!-- </dependency> -->
+
+			<!-- <dependency> -->
+			<!-- <groupId>org.ops4j.pax.logging</groupId> -->
+			<!-- <artifactId>pax-logging-service</artifactId> -->
+			<!-- <version>${pax.logging.version}</version> -->
+			<!-- <scope>runtime</scope> -->
+			<!-- Note that this bundle declares a dependency on log4j -->
+			<!-- </dependency> -->
+
+			<!-- <dependency> -->
+			<!-- <groupId>org.apache.felix</groupId> -->
+			<!-- <artifactId>org.apache.felix.framework</artifactId> -->
+			<!-- <version>${felix.framework.version}</version> -->
+			<!-- </dependency> -->
+
+		</dependencies>
+	</dependencyManagement>
 
 </project>
 

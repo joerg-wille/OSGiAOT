@@ -27,6 +27,7 @@
 		<module>./greeting.client</module>
 		<module>./greeting.bom</module>
 		<module>./greeting.launch</module>
+		<module>./greeting.native</module>
 	</modules>
 
 </project>

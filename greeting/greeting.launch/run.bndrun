@@ -3,7 +3,7 @@
 -resolve.effective: resolve, active
 	
 // -runfw: org.apache.felix.framework;version='[5,6)'
--runfw: org.eclipse.osgi;version='[3.15.200.v20200214-1600,3.15.200.v20200214-1600]'
+-runfw: org.eclipse.osgi;version='[3.16.0.v20200428-2344,3.16.0.v20200428-2344]'
 
 -runee: JavaSE-11
 

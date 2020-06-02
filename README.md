@@ -31,4 +31,3 @@ POC for OSGi Connect Native Builds.
 1. Run greeting uber-jar  
    `./greeting/greeting.native/target/native_image_build/[random]/bin/greeting-native`
 2. Test by entering `hello [name]` and `hallo [name]`
-3. **Not working so far, since gogo-commands have not been created!**

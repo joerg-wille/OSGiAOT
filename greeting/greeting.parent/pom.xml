@@ -43,7 +43,7 @@
 		<!-- Dependencies Versions -->
 		<atomos.version>0.0.1-SNAPSHOT</atomos.version>
 		<felix.framework.connect.version>0.1.0-SNAPSHOT</felix.framework.connect.version>
-		<junit.version>4.12</junit.version>
+		<junit.version>4.13.1</junit.version>
 		<osgi.version>7.0.0</osgi.version>
 		<osgi.promise.version>7.0.1</osgi.promise.version>
 		<org.osgi.service.version>1.4.0</org.osgi.service.version>
